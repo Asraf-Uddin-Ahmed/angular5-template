@@ -1,4 +1,4 @@
-import { SearchQuery } from 'app/components/master-search/search-query';
+import { SearchQuery } from './search-query';
 
 
 export declare class SearchByField {

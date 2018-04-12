@@ -4,7 +4,7 @@ import { SortByField } from './sort-by-field';
 import { DropdownModel } from '../dropdown/dropdown-model';
 import { SortDropdownModel } from './sort-dropdown-model';
 import { FilterDropdownModel } from './filter-dropdown-model';
-import { SearchByField } from 'app/components/master-search/search-by-field';
+import { SearchByField } from './search-by-field';
 
 @Component({
   selector: 'app-master-search',
