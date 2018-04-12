@@ -1,13 +1,13 @@
 import { SearchByField } from '../../components/master-search/search-by-field';
 import { SortByField } from './../../components/master-search/sort-by-field';
 import { Headers } from '@angular/http';
-import { HttpService } from './../../services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PaginationField } from '../../components/master-search/pagination-field';
 import { SortDropdownModel } from '../../components/master-search/sort-dropdown-model';
 import { FilterDropdownModel } from '../../components/master-search/filter-dropdown-model';
 import { AlertMessageService } from '../../services/alert-message.service';
+import { AppHttpService } from '../../services/app-http.service';
 
 @Component({
   selector: 'app-landing',
@@ -106,7 +106,7 @@ export class LandingComponent implements OnInit {
   items = [];
   total = 0;
 
-  constructor(private httpService: HttpService, private alertMessageService: AlertMessageService) {
+  constructor(private appHttpService: AppHttpService, private alertMessageService: AlertMessageService) {
     this.paginationFieldNames.startOffset = 'pagination.displayStart';
     this.paginationFieldNames.itemsPerPage = 'pagination.displaySize';
   }
@@ -115,10 +115,10 @@ export class LandingComponent implements OnInit {
 
   changeSearch($event) {
     console.log($event);
-    this.httpService.get('http://localhost/data', $event)
+    this.appHttpService.get('http://localhost:4873/questions', $event)
       .subscribe(data => {
-        this.total = data.totalItem;
-        this.items = data.items;
+        this.total = data['totalItem'];
+        this.items = data['items'];
         console.log(data);
       }, err => {
         console.log(err);

@@ -1,40 +1,53 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class HttpService {
 
-  protected readonly requestOptions = new RequestOptions();
+  protected readonly requestOptions: {
+    headers?: HttpHeaders | {
+      [header: string]: string | string[];
+    };
+    observe?: 'body';
+    params?: HttpParams | {
+      [param: string]: string | string[];
+    };
+    reportProgress?: boolean;
+    responseType?: 'json';
+    withCredentials?: boolean;
+  };
 
-  constructor(protected http: Http) { }
+  constructor(protected httpClient: HttpClient) {
+    this.requestOptions = {};
+  }
 
   get(url: string, searchItems?: object) {
     this.loadSearchToRequestOptions(searchItems);
-    return this.http.get(url, this.requestOptions).map(res => res.json());
+    return this.httpClient.get(url, this.requestOptions);
   }
 
   post(url: string, data: object) {
-    return this.http.post(url, data, this.requestOptions).map(res => res.json());
+    return this.httpClient.post(url, data, this.requestOptions);
   }
 
   put(url: string, data: object) {
-    return this.http.put(url, data, this.requestOptions).map(res => res.json());
+    return this.httpClient.put(url, data, this.requestOptions);
   }
 
   delete(url: string) {
-    return this.http.delete(url, this.requestOptions).map(res => res.json());
+    return this.httpClient.delete(url, this.requestOptions);
   }
 
 
   private loadSearchToRequestOptions(searchItems: object) {
-    const search = new URLSearchParams();
+    let search = new HttpParams();
     for (const key in searchItems) {
       if (searchItems.hasOwnProperty(key)) {
         const value = searchItems[key];
-        Array.isArray(value) ? value.forEach(elem => search.append(key, elem)) : search.set(key, value);
+        Array.isArray(value) ? value.forEach(elem => search = search.append(key, elem)) : (search = search.append(key, value));
       }
     }
-    this.requestOptions.search = search;
+    this.requestOptions.params = search;
   }
 
 }

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
-import { HttpService } from 'app/services/http.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpService } from './http.service';
 
 @Injectable()
 export class AppHttpService extends HttpService {
 
-  private readonly baseUrl = 'https://testapi.konnectedtechnology.com/';
+  private readonly baseUrl = 'http://localhost:4873/';
 
-  constructor(protected http: Http) {
-    super(http);
-    const headers = new Headers();
-    // headers.append('Authorization', btoa('username:password'));
+  constructor(protected httpClient: HttpClient) {
+    super(httpClient);
+    const headers = new HttpHeaders({ 'Client-Id': 'ng5DevRatulApp' });
     this.requestOptions.headers = headers;
   }
 
