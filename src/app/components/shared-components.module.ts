@@ -6,6 +6,15 @@ import { DynamicFormsNGBootstrapUIModule } from '@ng-dynamic-forms/ui-ng-bootstr
 import { FileUploadModule } from 'ng2-file-upload';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule, NG_VALIDATORS } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatCardModule
+} from '@angular/material';
 
 import { validateStartsWithoutAbc, customDateRangeValidator, validateUrl, requireCheckbox, requireCheckboxGroup } from '../app.validators';
 
@@ -28,6 +37,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
     ReactiveFormsModule,
     FileUploadModule,
     AngularFontAwesomeModule,
+    BrowserAnimationsModule,
     CommonModule
   ],
   declarations: [
