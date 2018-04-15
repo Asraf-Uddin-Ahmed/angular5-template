@@ -7,14 +7,9 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule, NG_VALIDATORS } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatToolbarModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatCardModule
-} from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 import { validateStartsWithoutAbc, customDateRangeValidator, validateUrl, requireCheckbox, requireCheckboxGroup } from '../app.validators';
 
@@ -24,6 +19,7 @@ import { MasterSearchComponent } from './master-search/master-search.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
+import { MasterSearchMaterialComponent } from './master-search-material/master-search-material.component';
 
 @NgModule({
   imports: [
@@ -38,6 +34,9 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
     FileUploadModule,
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatInputModule,
     CommonModule
   ],
   declarations: [
@@ -45,14 +44,16 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
     FileUploadComponent,
     MasterSearchComponent,
     DropdownComponent,
-    AlertMessageComponent
+    AlertMessageComponent,
+    MasterSearchMaterialComponent
   ],
   exports: [
     DynamicBootstrapFormComponent,
     FileUploadComponent,
     MasterSearchComponent,
     DropdownComponent,
-    AlertMessageComponent
+    AlertMessageComponent,
+    MasterSearchMaterialComponent
   ],
   providers: [
     { provide: NG_VALIDATORS, multi: true, useValue: validateStartsWithoutAbc },

@@ -1,3 +1,6 @@
+<app-master-search-material>
+</app-master-search-material>
+
 <div class="example-container mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource">
 
@@ -11,7 +14,6 @@
       <mat-cell *matCellDef="let element"> {{element.answerType === 1 ? 'descriptive' : element.answerType === 2 ? 'mcq' : 'fill in the blanks'}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="privacyMode">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.privacyMode === 1 ? 'public' : 'private'}} </mat-cell>
@@ -21,6 +23,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" (page)="changeSearch($event)">
   </mat-paginator>
 </div>

@@ -18,6 +18,7 @@ import { HomeMaterialComponent } from './pages/home-material/home-material.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
     AppRoutingModule,
     SharedServicesModule,
     SharedComponentsModule
