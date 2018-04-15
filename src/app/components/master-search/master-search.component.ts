@@ -25,7 +25,9 @@ export class MasterSearchComponent implements OnInit {
   @Input() sortByField: SortByField;
   @Input() filterDropdownModels: FilterDropdownModel[];
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onInit = new EventEmitter();
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onChange = new EventEmitter();
 
 
