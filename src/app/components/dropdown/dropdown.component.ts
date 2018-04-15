@@ -12,6 +12,7 @@ export class DropdownComponent implements OnInit {
   @Input() dropdownModel: DropdownModel;
   @Input() placeholder: string;
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onChange = new EventEmitter();
 
   constructor() { }

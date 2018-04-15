@@ -1,3 +1,11 @@
 <mat-form-field class="">
   <input matInput placeholder="Search here..." type="text" name="search" (keyup)="changeSearchText()" [(ngModel)]="searchText">
 </mat-form-field>
+
+<!-- <mat-form-field>
+  <mat-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
