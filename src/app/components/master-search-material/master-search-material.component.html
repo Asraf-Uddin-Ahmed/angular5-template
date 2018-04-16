@@ -9,6 +9,11 @@
   <mat-icon class="fa fa-sort-amount-desc" *ngIf="sortByColumnDropdown.isAscendingSort === false"></mat-icon>
 </button>
 
+<div class="" *ngFor="let filterDropdownModel of filterDropdownModels">
+  <app-dropdown-material [dropdownModel]="filterDropdownModel.dropdownModel" [placeholder]="filterDropdownModel.placeholder"
+    (onChange)="changeFilterOption($event)"></app-dropdown-material>
+</div>
+
 <ng-content></ng-content>
 
 <mat-paginator [length]="totalItem" [pageSize]="itemsPerPage" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="changePaginator($event)"></mat-paginator>

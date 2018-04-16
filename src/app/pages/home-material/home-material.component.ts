@@ -83,6 +83,10 @@ export class HomeMaterialComponent implements OnInit {
       dropdownModel: {
         options: [
           {
+            label: 'all',
+            value: ''
+          },
+          {
             label: 'descriptive',
             value: 1
           },

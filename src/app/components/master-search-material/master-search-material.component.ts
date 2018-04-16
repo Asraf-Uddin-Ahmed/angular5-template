@@ -50,7 +50,6 @@ export class MasterSearchMaterialComponent implements OnInit {
     this.emitSearchObject(this.onChange);
   }
   changeSortByColumn($event) {
-    console.log('-> ', $event);
     this.sortByColumnDropdown.dropdownModel.selectedValue = $event;
     this.currentPage = 1;
     this.emitSearchObject(this.onChange);
@@ -78,8 +77,8 @@ export class MasterSearchMaterialComponent implements OnInit {
   private loadFilterFields(searchObject) {
     this.filterDropdownModels = this.filterDropdownModels ? this.filterDropdownModels : [];
     this.filterDropdownModels.forEach(value => {
-      if (value.dropdownModel.selectedOption) {
-        searchObject[value.fieldName] = value.dropdownModel.selectedOption.value;
+      if (value.dropdownModel.selectedValue) {
+        searchObject[value.fieldName] = value.dropdownModel.selectedValue;
       }
     });
   }
