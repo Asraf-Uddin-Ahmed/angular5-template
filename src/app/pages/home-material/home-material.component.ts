@@ -110,11 +110,9 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
   displayedColumns = ['description', 'answerType', 'privacyMode'];
   dataSource = new MatTableDataSource();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   constructor(private appHttpService: AppHttpService, private alertMessageService: AlertMessageService) {
-    // this.paginationFieldNames.startOffset = 'pagination.displayStart';
-    // this.paginationFieldNames.itemsPerPage = 'pagination.displaySize';
+    this.paginationFieldNames.startOffset = 'pagination.displayStart';
+    this.paginationFieldNames.itemsPerPage = 'pagination.displaySize';
   }
 
   /**
@@ -122,7 +120,6 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
    * be able to query its view for the initialized paginator.
    */
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
@@ -130,15 +127,14 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
   }
 
   changeSearch($event) {
-    console.log($event);
-    // this.appHttpService.get('http://localhost:4873/questions', $event)
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     this.paginator.length = data['totalItem'];
-    //     this.dataSource = data['items'];
-    //   }, err => {
-    //     console.log(err);
-    //     this.alertMessageService.setError('Failed to search');
-    //   });
+    console.log('=> ', $event);
+    this.appHttpService.get('http://localhost:4873/questions', $event)
+      .subscribe(data => {
+        console.log(data);
+        this.dataSource = data['items'];
+      }, err => {
+        console.log(err);
+        this.alertMessageService.setError('Failed to search');
+      });
   }
 }
