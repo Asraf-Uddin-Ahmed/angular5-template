@@ -17,12 +17,10 @@ export class DropdownMaterialComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.dropdownModel.selectedOption);
   }
 
   changeOption() {
-    // console.log(this.dropdownModel.selectedOption);
-    this.onChange.emit(this.dropdownModel.selectedOption);
+    this.onChange.emit(this.dropdownModel.selectedValue);
   }
 
 }
