@@ -26,30 +26,6 @@ export class MasterSearchMaterialComponent implements OnInit {
   @Output() onChange = new EventEmitter();
 
 
-  readonly itemsPerPageDropdown: DropdownModel = {
-    options: [
-      {
-        label: '10',
-        value: 10
-      },
-      {
-        label: '25',
-        value: 25
-      },
-      {
-        label: '50',
-        value: 50
-      },
-      {
-        label: '100',
-        value: 100
-      }
-    ],
-    selectedOption: {
-      label: '10',
-      value: 10
-    }
-  };
   searchText = '';
   currentPage = 1;
   itemsPerPage = 10;
@@ -64,11 +40,10 @@ export class MasterSearchMaterialComponent implements OnInit {
   changeSearchText() {
     this.emitSearchObject(this.onChange);
   }
-  changePage() {
-    this.emitSearchObject(this.onChange);
-  }
-  changeItemsPerPage($event) {
-    this.itemsPerPage = $event.value;
+  changePaginator($event) {
+    console.log('-> ', $event);
+    this.currentPage = $event.pageIndex + 1;
+    this.itemsPerPage = $event.pageSize;
     this.emitSearchObject(this.onChange);
   }
   changeSortByColumn($event) {

@@ -131,6 +131,7 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
     this.appHttpService.get('http://localhost:4873/questions', $event)
       .subscribe(data => {
         console.log(data);
+        this.total = data['totalItem'];
         this.dataSource = data['items'];
       }, err => {
         console.log(err);

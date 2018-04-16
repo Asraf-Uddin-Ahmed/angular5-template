@@ -4,8 +4,8 @@
   [sortByField]="sortByFieldNames" [filterDropdownModels]="filterDropdowns" (onInit)="changeSearch($event)" (onChange)="changeSearch($event)">
 
   <div class="mat-elevation-z8">
+
     <mat-table #table [dataSource]="dataSource">
-  
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>

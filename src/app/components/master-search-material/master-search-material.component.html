@@ -2,6 +2,8 @@
   <input matInput placeholder="Search here..." type="text" name="search" (keyup)="changeSearchText()" [(ngModel)]="searchText">
 </mat-form-field>
 
-<app-dropdown-material [dropdownModel]="itemsPerPageDropdown" (onChange)="changeItemsPerPage($event)"></app-dropdown-material>
+<!-- <app-dropdown-material [dropdownModel]="itemsPerPageDropdown" (onChange)="changeItemsPerPage($event)"></app-dropdown-material> -->
 
 <ng-content></ng-content>
+
+<mat-paginator [length]="totalItem" [pageSize]="itemsPerPage" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="changePaginator($event)"></mat-paginator>
