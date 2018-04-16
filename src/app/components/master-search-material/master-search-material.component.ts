@@ -9,7 +9,10 @@ import { FilterDropdownModel } from '../master-search/filter-dropdown-model';
 @Component({
   selector: 'app-master-search-material',
   templateUrl: './master-search-material.component.html',
-  styleUrls: ['./master-search-material.component.css']
+  styleUrls: [
+    '../../../../node_modules/font-awesome/css/font-awesome.css',
+    './master-search-material.component.css'
+  ]
 })
 export class MasterSearchMaterialComponent implements OnInit {
 
@@ -33,6 +36,7 @@ export class MasterSearchMaterialComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('-> ', this.sortByColumnDropdown);
     this.emitSearchObject(this.onInit);
   }
 
@@ -41,13 +45,13 @@ export class MasterSearchMaterialComponent implements OnInit {
     this.emitSearchObject(this.onChange);
   }
   changePaginator($event) {
-    console.log('-> ', $event);
     this.currentPage = $event.pageIndex + 1;
     this.itemsPerPage = $event.pageSize;
     this.emitSearchObject(this.onChange);
   }
   changeSortByColumn($event) {
-    this.sortByColumnDropdown.dropdownModel.selectedOption = $event;
+    console.log('-> ', $event);
+    this.sortByColumnDropdown.dropdownModel.selectedValue = $event;
     this.currentPage = 1;
     this.emitSearchObject(this.onChange);
   }
@@ -83,16 +87,16 @@ export class MasterSearchMaterialComponent implements OnInit {
     if (!this.sortByField) {
       return;
     }
-    if (this.sortByField.sortByColumn && this.sortByColumnDropdown.dropdownModel.selectedOption) {
-      searchObject[this.sortByField.sortByColumn] = this.sortByColumnDropdown.dropdownModel.selectedOption.value;
+    if (this.sortByField.sortByColumn && this.sortByColumnDropdown.dropdownModel.selectedValue) {
+      searchObject[this.sortByField.sortByColumn] = this.sortByColumnDropdown.dropdownModel.selectedValue;
     }
     if (this.sortByField.isAscendingSort && this.sortByColumnDropdown.isAscendingSort !== undefined) {
       searchObject[this.sortByField.isAscendingSort] = this.sortByColumnDropdown.isAscendingSort;
     }
     if (this.sortByField.queryPattern
-      && this.sortByColumnDropdown.dropdownModel.selectedOption
+      && this.sortByColumnDropdown.dropdownModel.selectedValue
       && this.sortByColumnDropdown.isAscendingSort !== undefined) {
-      searchObject[this.sortByField.queryPattern] = this.sortByColumnDropdown.dropdownModel.selectedOption.value
+      searchObject[this.sortByField.queryPattern] = this.sortByColumnDropdown.dropdownModel.selectedValue
         .concat(this.sortByColumnDropdown.isAscendingSort ? ' asc' : ' desc');
     }
   }

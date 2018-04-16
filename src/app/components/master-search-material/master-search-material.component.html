@@ -2,7 +2,12 @@
   <input matInput placeholder="Search here..." type="text" name="search" (keyup)="changeSearchText()" [(ngModel)]="searchText">
 </mat-form-field>
 
-<!-- <app-dropdown-material [dropdownModel]="itemsPerPageDropdown" (onChange)="changeItemsPerPage($event)"></app-dropdown-material> -->
+<app-dropdown-material [dropdownModel]="sortByColumnDropdown.dropdownModel" [placeholder]="'Sort by'" (onChange)="changeSortByColumn($event)"></app-dropdown-material>
+<button mat-icon-button (click)="toggleSortOrder()">
+  <mat-icon class="fa fa-random" *ngIf="sortByColumnDropdown.isAscendingSort === undefined"></mat-icon>
+  <mat-icon class="fa fa-sort-amount-asc" *ngIf="sortByColumnDropdown.isAscendingSort === true"></mat-icon>
+  <mat-icon class="fa fa-sort-amount-desc" *ngIf="sortByColumnDropdown.isAscendingSort === false"></mat-icon>
+</button>
 
 <ng-content></ng-content>
 

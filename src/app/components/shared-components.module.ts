@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { validateStartsWithoutAbc, customDateRangeValidator, validateUrl, requireCheckbox, requireCheckboxGroup } from '../app.validators';
 
@@ -38,6 +40,8 @@ import { DropdownMaterialComponent } from './dropdown-material/dropdown-material
     MatPaginatorModule,
     MatSelectModule,
     MatInputModule,
+    MatButtonModule,
+    MatIconModule,
     CommonModule
   ],
   declarations: [
