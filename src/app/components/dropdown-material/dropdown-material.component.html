@@ -1,5 +1,5 @@
 <mat-form-field class="">
-  <mat-select [placeholder]="placeholder" [(ngModel)]="dropdownModel.selectedOption" name="food" (change)="changeOption()">
+  <mat-select [placeholder]="placeholder" [(ngModel)]="dropdownModel.selectedOption.value" (change)="changeOption()">
     <mat-option *ngFor="let option of dropdownModel.options" [value]="option.value">
       {{option.label}}
     </mat-option>
