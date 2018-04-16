@@ -13,7 +13,7 @@ import { SortDropdownModel } from '../../components/master-search/sort-dropdown-
   templateUrl: './home-material.component.html',
   styleUrls: ['./home-material.component.css']
 })
-export class HomeMaterialComponent implements OnInit, AfterViewInit {
+export class HomeMaterialComponent implements OnInit {
 
   sortByColumns: SortDropdownModel = {
     dropdownModel: {
@@ -38,6 +38,11 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
     }
     // , isAscendingSort: false
   };
+  sortByFieldNames: SortByField = {
+    isAscendingSort: 'sortBy.isAscending',
+    sortByColumn: 'sortBy.fieldName',
+    queryPattern: 'order'
+  };
   searchByField: SearchByField = {
     names: ['searchItem.name', 'searchItem.description']
     // name: 'search',
@@ -51,11 +56,6 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
     //     fieldName: 'shortName'
     //   }
     // ]
-  };
-  sortByFieldNames: SortByField = {
-    isAscendingSort: 'sortBy.isAscending',
-    sortByColumn: 'sortBy.fieldName',
-    queryPattern: 'order'
   };
   filterDropdowns: FilterDropdownModel[] = [
     {
@@ -105,8 +105,7 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
   items = [];
   total = 0;
 
-  // ###################################
-
+  // Table headers
   displayedColumns = ['description', 'answerType', 'privacyMode'];
   dataSource = new MatTableDataSource();
 
@@ -115,15 +114,7 @@ export class HomeMaterialComponent implements OnInit, AfterViewInit {
     this.paginationFieldNames.itemsPerPage = 'pagination.displaySize';
   }
 
-  /**
-   * Set the paginator after the view init since this component will
-   * be able to query its view for the initialized paginator.
-   */
-  ngAfterViewInit() {
-  }
-
   ngOnInit() {
-    // this.changeSearch({ itemsPerPage: 10 });
   }
 
   changeSearch($event) {
