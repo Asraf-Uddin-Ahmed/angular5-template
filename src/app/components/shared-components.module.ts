@@ -20,6 +20,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap/alert/alert.module';
 import { MasterSearchMaterialComponent } from './master-search-material/master-search-material.component';
+import { DropdownMaterialComponent } from './dropdown-material/dropdown-material.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { MasterSearchMaterialComponent } from './master-search-material/master-s
     MasterSearchComponent,
     DropdownComponent,
     AlertMessageComponent,
-    MasterSearchMaterialComponent
+    MasterSearchMaterialComponent,
+    DropdownMaterialComponent
   ],
   exports: [
     DynamicBootstrapFormComponent,
@@ -53,7 +55,8 @@ import { MasterSearchMaterialComponent } from './master-search-material/master-s
     MasterSearchComponent,
     DropdownComponent,
     AlertMessageComponent,
-    MasterSearchMaterialComponent
+    MasterSearchMaterialComponent,
+    DropdownMaterialComponent
   ],
   providers: [
     { provide: NG_VALIDATORS, multi: true, useValue: validateStartsWithoutAbc },
