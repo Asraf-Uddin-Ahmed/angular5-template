@@ -7,6 +7,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule, NG_VALIDATORS } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -37,6 +38,7 @@ import { DropdownMaterialComponent } from './dropdown-material/dropdown-material
     FileUploadModule,
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MatPaginatorModule,
     MatSelectModule,
     MatInputModule,
